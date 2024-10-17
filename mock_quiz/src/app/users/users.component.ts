@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { userService } from '../service/user.service';
 import { CommonModule } from '@angular/common';
+import { UserStatsComponent } from "../user-stats/user-stats.component";
 
 export interface User {
   id: number;
@@ -14,7 +15,7 @@ export interface User {
 @Component({
   selector: 'app-users',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, UserStatsComponent],
   templateUrl: './users.component.html',
   styleUrl: './users.component.css'
 })
@@ -22,6 +23,7 @@ export interface User {
 
 export class UsersComponent {
   Users: User[] = []
+  selectedUser?: User;
 
   constructor(private userService: userService) {}
 
@@ -31,5 +33,9 @@ export class UsersComponent {
 
   statusColor(user: User) {
     return user.Status === "Confirmed" ? "green" : user.Status === "Blocked" ? "red" : "black"
+  }
+
+  onSelect(user: User) {
+    this.selectedUser = user;
   }
 }

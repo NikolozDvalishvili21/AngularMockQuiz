@@ -7,7 +7,7 @@
     <th>Last Login</th>
     <th>Status</th>
   </tr>
-  <tr *ngFor="let user of Users">
+  <tr *ngFor="let user of Users" (click)="onSelect(user)" style="cursor: pointer;">
     <th>{{ user.id }}</th>
     <th>{{ user.Username }}</th>
     <th>{{ user.Email }}</th>
@@ -16,3 +16,5 @@
     <th [ngStyle]="{color: statusColor(user)}">{{ user.Status }}</th>
   </tr>
 </table>
+
+<app-user-stats *ngIf="selectedUser" [user]="selectedUser"></app-user-stats>

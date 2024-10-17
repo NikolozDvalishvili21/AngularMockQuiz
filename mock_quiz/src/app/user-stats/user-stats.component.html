@@ -1,0 +1,9 @@
+<div *ngIf="user">
+    <h2>{{ user.Email }}</h2>
+    <p><b>Id: </b>{{ user.id }}</p>
+    <p><b>Email:</b> {{ user.Email }}</p>
+    <p><b>Registration Time:</b> {{ user.RegistrationTime }}</p>
+    <p><b>Last Login:</b> {{ user.LastLogin }}</p>
+    <p [ngStyle]="{color: statusColor(user)}"><strong>Status:</strong> {{ user.Status }}</p>
+  </div>
+  
