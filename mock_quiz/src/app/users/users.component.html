@@ -1,0 +1,18 @@
+<table>
+  <tr>
+    <th>Id</th>
+    <th>Username</th>
+    <th>Email</th>
+    <th>Registration Time</th>
+    <th>Last Login</th>
+    <th>Status</th>
+  </tr>
+  <tr *ngFor="let user of Users">
+    <th>{{ user.id }}</th>
+    <th>{{ user.Username }}</th>
+    <th>{{ user.Email }}</th>
+    <th>{{ user.RegistrationTime }}</th>
+    <th>{{ user.LastLogin }}</th>
+    <th [ngStyle]="{color: statusColor(user)}">{{ user.Status }}</th>
+  </tr>
+</table>
